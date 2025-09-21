@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CBI Bank — Landing Page</title>
+  <meta name="description" content="CBI Bank: simple, secure banking with great loan options." />
+  <style>
+    :root{
+      --brand:#0b3a75;      /* primary */
+      --brand-2:#1158ad;    /* hover */
+      --ink:#0e1a2b;        /* body text */
+      --muted:#667085;      /* muted text */
+      --bg:#ffffff;
+      --soft:#f5f7fb;
+      --radius:14px;
+      --shadow:0 8px 24px rgba(16,24,40,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      line-height:1.5;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1100px; margin:0 auto; padding:0 16px}
+
+    /* ===== NAVBAR ===== */
+    .nav{
+      position:sticky; top:0; z-index:1000;
+      background:var(--brand); color:#fff;
+      box-shadow:0 1px 0 rgba(16,24,40,.08);
+    }
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0}
+    .brand{font-weight:800; letter-spacing:.3px}
+    .menu{display:flex; align-items:center; gap:100px; flex:1;margin-left:100px;}
+    .menu a, .menu button{
+      color:#fff; padding:10px 12px; border-radius:10px; border:0; background:transparent; cursor:pointer;
+    }
+    .menu a:hover, .menu button:hover{background:rgba(255,255,255,.12)}
+    .cta{background:#fff; color:var(--brand); font-weight:700; padding:10px 14px}
+    .cta:hover{background:#e8f0fe}
+    /* dropdown */
+    .drop{position:relative}
+    .drop[aria-expanded="true"] .panel{display:block}
+    .panel{
+      display:none; position:absolute; left:0; top:100%; min-width:200px;
+      background:#fff; color:var(--ink); border-radius:12px; box-shadow:var(--shadow); overflow:hidden;
+    }
+    .panel a{display:block; padding:10px 14px}
+    .panel a:hover{background:#f2f6ff}
+    .push-right{ margin-left:auto }
+    /* mobile menu */
+    .burger{display:none}
+    @media (max-width:820px){
+      .burger{display:block; background:transparent; border:0; color:#fff; font-size:18px; padding:10px}
+      .menu{display:none; flex-direction:column; align-items:flex-start; background:var(--brand); padding:8px; border-radius:14px;gap:10px;margin-left: 0;}
+      .menu.show{display:flex}
+      .panel{position:static; box-shadow:none; border-radius:10px; margin-left:8px}
+      .push-right{ margin-left:0 } 
+    }
+
+    /* ===== SLIDESHOW ===== */
+    .hero{background:var(--soft)}
+    .slidebox{position:relative; overflow:hidden; border-radius:20px; box-shadow:var(--shadow)}
+    .slides{display:none; position:relative}
+    .slides img{width:100%; height:420px; object-fit:cover; display:block}
+    .caption{
+      position:absolute; left:0; right:0; bottom:0;
+      background:linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,0));
+      color:#fff; padding:24px; font-size:18px; font-weight:600;
+    }
+    .dots{display:flex; justify-content:center; gap:10px; padding:16px 0 8px}
+    .dot{
+      width:12px; height:12px; border-radius:50%; background:#c9d3e8; cursor:pointer; outline:2px solid transparent;
+    }
+    .dot.active{background:var(--brand)}
+
+    /* ===== WHY CBI ===== */
+    .why{padding:40px 0 28px}
+    .why h2{margin:0 0 12px}
+    .grid{display:grid; gap:16px; grid-template-columns:repeat(3,1fr)}
+    .card{
+      background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); padding:18px;
+    }
+    .card h3{margin:0 0 6px; font-size:18px}
+    .card p{margin:0; color:var(--muted); font-size:14px}
+    @media (max-width:820px){ .grid{grid-template-columns:1fr} }
+
+    /* ===== FOOTER ===== */
+    footer{
+      background:var(--brand); color:#eaf0ff; margin-top:28px
+    }
+    .foot{display:flex; flex-wrap:wrap; gap:12px; justify-content:center; padding:18px 0}
+    .foot a{color:#eaf0ff; opacity:.9}
+    .copy{font-size:12px; text-align:center; opacity:.8; padding:0 0 14px}
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="nav" role="navigation">
+    <div class="container nav-inner">
+      <a class="brand" href="#">CBI Bank</a>
+      <button class="burger" aria-controls="menu" aria-expanded="false">☰ Menu</button>
+      <a href="about.html" role="menuitem">About</a>
+      <div class="drop" role="none">
+        <button aria-haspopup="true" aria-expanded="false">Loans ▾</button>
+        <div class="panel" role="menu">
+          <a href="home-loan.html" role="menuitem">Home Loan</a>
+          <a href="vehicle-loan.html" role="menuitem">Vehicle Loan</a>
+          <a href="personal-loan.html" role="menuitem">Personal Loan</a>
+        </div>
+      </div>
+      <a href="faq.html" role="menuitem">FAQs</a>
+      <a href="contact.html" role="menuitem">Contact</a>
+      <a href="emi.html" role="menuitem">EMI Calculator</a>
+      <a href="login.html" class="cta push-right" role="menuitem">Login</a>
+    </div>
+  </nav>
+  </nav>
+
+  <!-- ===== HERO / SLIDER ===== -->
+  <section class="hero">
+    <div class="container" style="padding:18px 0 6px">
+      <div class="slidebox" id="slider">
+        <figure class="slides">
+          <img src="C:\Users\Jignan Sai\Downloads\Gemini_Generated_Image_jjc0dyjjc0dyjjc0.png" alt="Welcome to CBI Bank">
+          <figcaption class="caption">Welcome to CBI Bank — simple, secure banking for everyone.</figcaption>
+        </figure>
+
+        <figure class="slides">
+          <img src="C:\Users\Jignan Sai\Downloads\Gemini_Generated_Image_jjc0dyjjc0dyjjc0 (1).png" alt="Trusted loan services">
+          <figcaption class="caption">Trusted loan options: Home, Vehicle, and Personal — tailored for you.</figcaption>
+        </figure>
+
+        <figure class="slides">
+          <img src="C:\Users\Jignan Sai\Downloads\Gemini_Generated_Image_jjc0dyjjc0dyjjc0 (2).png" alt="Grow with us">
+          <figcaption class="caption">Why CBI? Reliability, transparency, and 24×7 support.</figcaption>
+        </figure>
+      </div>
+
+      <div class="dots" id="dots" aria-label="Slideshow controls"></div>
+    </div>
+  </section>
+
+  <!-- ===== WHY CBI ===== -->
+  <section class="why container" id="why">
+    <h2>Why CBI?</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Secure & Private</h3>
+        <p>Bank-grade encryption and multi-factor security keep your money safe.</p>
+      </div>
+      <div class="card">
+        <h3>Fast Approvals</h3>
+        <p>Streamlined loan processing with clear, transparent terms.</p>
+      </div>
+      <div class="card">
+        <h3>Human Support</h3>
+        <p>24×7 customer help via phone, email, and chat—whenever you need us.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <a href="#">Home</a> •
+        <a href="#contact">Contact us</a> •
+        <a href="#about">About us</a> •
+        <a href="#">Follow us</a> •
+        <a href="#">Terms &amp; Conditions</a> •
+        <a href="#">Privacy Policy</a>
+      </div>
+      <div class="copy">© <span id="year"></span> CBI Bank. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const burger = document.querySelector('.burger');
+    const menu = document.getElementById('menu');
+    burger.addEventListener('click', () => {
+      const open = menu.classList.toggle('show');
+      burger.setAttribute('aria-expanded', open);
+    });
+
+    // Accessible dropdown for Loans
+    const drop = document.querySelector('.drop');
+    const dropBtn = drop.querySelector('button');
+    dropBtn.addEventListener('click', e => {
+      const isOpen = drop.getAttribute('aria-expanded') === 'true';
+      drop.setAttribute('aria-expanded', String(!isOpen));
+      dropBtn.setAttribute('aria-expanded', String(!isOpen));
+    });
+    document.addEventListener('click', e => {
+      if (!drop.contains(e.target)) {
+        drop.setAttribute('aria-expanded','false');
+        dropBtn.setAttribute('aria-expanded','false');
+      }
+    });
+
+    // Slider
+    const slides = Array.from(document.querySelectorAll('.slides'));
+    const dotsBox = document.getElementById('dots');
+    let idx = 0, timer;
+
+    function buildDots(){
+      slides.forEach((_, i) => {
+        const d = document.createElement('button');
+        d.className = 'dot';
+        d.ariaLabel = 'Go to slide ' + (i+1);
+        d.addEventListener('click', () => go(i, true));
+        dotsBox.appendChild(d);
+      });
+    }
+    function show(i){
+      slides.forEach(s => s.style.display = 'none');
+      slides[i].style.display = 'block';
+      [...dotsBox.children].forEach((d,di)=>d.classList.toggle('active', di===i));
+    }
+    function go(i, user=false){
+      idx = (i+slides.length) % slides.length;
+      show(idx);
+      if(user){ reset(); }
+    }
+    function next(){ go(idx+1); }
+    function reset(){ clearInterval(timer); timer=setInterval(next, 3500); }
+
+    buildDots();
+    show(0);
+    reset();
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
